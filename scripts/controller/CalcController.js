@@ -32,4 +32,18 @@ class CalcController {
             this.dsplayCalc = parseFloat(text);
         });
     }
+
+    initialize() {
+        this.setDisplayDateTime();
+        setInterval(() => {
+            this.setDisplayDateTime();
+        }, 1000);
+        this.setLastNumberToDisplay();
+        this.pasteFromClipboard();
+        document.querySelector('.btn-ac').forEach(btn => {
+            btn.addEventListener('dbclick', event => {
+                this.toggleAudio();
+            });
+        });
+    }
 }
