@@ -191,4 +191,23 @@ class CalcController {
         if(!lastNumber) lastNumber = 0;
         this.displayCalc = lastNumber;
     }
+
+    addOperation(value) {
+        if(isNaN(this.getLastOperation())) {
+            if(this.isOperation(value)) {
+                this.setLastOperation(value);
+            } else {
+                this.pushOperation(value);
+                this.setLastNumberToDisplay();
+            }
+        } else {
+            if(this.isOperator(value)) {
+                this.pushOperation(value);
+            } else {
+                let newValue = this.getLastOperation().toString() + value.toString();
+                this.setLastOperation(newValue);
+                this.setLastNumberToDisplay();
+            }
+        }
+    }
 }
