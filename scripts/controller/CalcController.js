@@ -272,4 +272,17 @@ class CalcController {
                 this.setError();
         }
     }
+
+    initButtonsEvents() {
+        let buttons = document.querySelectorAll('#buttons > g, #parts > g');
+        buttons.forEach((btn, index) => {
+            this.addEventListenerAll(btn, 'click drag', event => {
+                let textBtn = btn.className.baseVal.replace('btn-', '');
+                this.execBtn(textBtn);
+            });
+            this.addEventListenerAll(btn, 'mouseover mouseup mousedown', event => {
+                btn.style.cursor = 'pointer';
+            });
+        });
+    }
 }
