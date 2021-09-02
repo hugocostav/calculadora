@@ -147,4 +147,28 @@ class CalcController {
             setTimeout(() => this.setError(), 1);
         }
     }
+
+    calc() {
+        let last = '';
+        this._lastOperator = this.getLastItem();
+        if (this._operation.length < 3) {
+            let firstItem = this._operation[0];
+            this._operation = [firstItem, this._lastOperator, this._lastNumber];
+        }
+        if(this._operation.length > 3) {
+            last = this._operation.pop();
+            this._lastNumber = this.getResult();
+        } else if(this._operation.length === 3) {
+            this._lastNumber = this.getLastOperation(false);
+        }
+        let result = this.getResult();
+        if(last === '%') {
+            result /= 100;
+            this._operation = [result];
+        } else {
+            this._operation = [result];
+            if(last) this._operation.push(last);
+        }
+        this.setLastNumberToDisplay();
+    }
 }
