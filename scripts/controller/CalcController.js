@@ -133,4 +133,12 @@ class CalcController {
         return (['+', '-', '*', '%', '/'].indexOf(value) > -1);
     }
 
+    pushOperation(value) {
+        this._operation.push(value);
+        if(this._operation.length > 3) {
+            this.calc();
+        }
+    }
+
+
 }
