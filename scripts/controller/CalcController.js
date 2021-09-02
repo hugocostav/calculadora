@@ -46,4 +46,8 @@ class CalcController {
             });
         });
     }
+
+    toggleAudio() {
+        this._audioOnOff = !this._audioOnOff;
+    }
 }
