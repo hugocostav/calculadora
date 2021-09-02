@@ -285,4 +285,14 @@ class CalcController {
             });
         });
     }
+
+    setDisplayDateTime() {
+        this.displayDate = this.currentDate.toLocaleDateString(
+            this._locale, {
+                day: '2-digit',
+                month: 'long',
+                year: 'numeric'
+            });
+        this.displayTime = this.currentDate.toLocaleTimeString(this._locale);
+    }
 }
