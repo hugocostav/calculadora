@@ -26,4 +26,10 @@ class CalcController {
         input.remove();
     }
 
+    pasteFromClipboard() {
+        document.addEventListener('paste', event => {
+            let text = event.clipboardData.getData('Text');
+            this.dsplayCalc = parseFloat(text);
+        });
+    }
 }
