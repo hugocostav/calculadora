@@ -120,4 +120,14 @@ class CalcController {
         this._operation.pop();
         this.setLasNumberToDisplay();
     }
+
+    getLastOperation() {
+        return this._operation[this._operation.length - 1];
+    }
+
+    setLastOperation(value) {
+        this._operation[this._operation.length -1] = value;
+    }
+
+
 }
