@@ -225,4 +225,51 @@ class CalcController {
         }
         this.setLastNumberToDisplay();
     }
+
+    execBtn(value) {
+        this.playAudio();
+        switch (value) {
+            case 'ac':
+                this.clearAll();
+                break;
+            case 'ce':
+                this.clearEntry();
+                break;
+            case 'soma':
+                this.addOperation('+');
+                break;
+            case 'subtracao':
+                this.addOperation('-');
+                break;
+            case 'divisao':
+                this.addOperation('/');
+                break;
+            case 'multiplicacao':
+                this.addOperation('*');
+                break;
+            case 'porcento':
+                this.addOperation('%');
+                break;
+            case 'igual':
+                this.calc();
+                break;
+            case 'ponto':
+                this.addDot();
+                break;
+            case '0':
+            case '1':
+            case '2':
+            case '3':
+            case '4':
+            case '5':
+            case '6':
+            case '7':
+            case '8':
+            case '9':
+                this.addOperation(parseInt(value));
+                break;
+            default:
+                this.setError();
+        }
+    }
 }
