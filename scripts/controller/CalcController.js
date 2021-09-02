@@ -185,4 +185,10 @@ class CalcController {
         }
         return lastItem;
     }
+
+    setLastNumberToDisplay() {
+        let lastNumber = this.getLastItem(false);
+        if(!lastNumber) lastNumber = 0;
+        this.displayCalc = lastNumber;
+    }
 }
