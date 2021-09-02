@@ -17,4 +17,13 @@ class CalcController {
 
     }
 
+    copyToClipboard() {
+        let input = document.createElement('imput');
+        input.value = this.displayCalc;
+        document.body.appendChild(input);
+        input.select();
+        document.execCommand('Copy');
+        input.remove();
+    }
+
 }
