@@ -115,4 +115,9 @@ class CalcController {
 
         this.setLastNumberToDisplay();
     }
+
+    clearEntry() {
+        this._operation.pop();
+        this.setLasNumberToDisplay();
+    }
 }
