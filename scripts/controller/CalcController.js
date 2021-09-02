@@ -57,4 +57,48 @@ class CalcController {
             this._audio.play();
         }
     }
+
+    initKeyboard() {
+        document.addEventListener('keyup', event => {
+            this.playAudio();
+            switch (event.key) {
+                case 'Escape':
+                    this.clearAll();
+                    break;
+                case 'Backspace':
+                    this.clearAll();
+                    break;
+                case '+':
+                case '-':
+                case '*':
+                case '/':
+                case '%':
+                    this.addOperation(event.key);
+                    break;
+                case 'Enter':
+                case '=':
+                    this.calc();
+                    break;
+                case '.':
+                case ',':
+                    this.addDot();
+                    break;
+                case '0':
+                case '1':
+                case '2':
+                case '3':
+                case '4':
+                case '5':
+                case '6':
+                case '7':
+                case '8':
+                case '9':
+                    this.addOperation(parseInt(event.key));
+                    break;
+                case 'c':
+                    if(event.ctrlKey) this.copyToClipboard();
+                    break;
+            }
+        })
+    }
 }
