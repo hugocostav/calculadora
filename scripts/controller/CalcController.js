@@ -214,4 +214,15 @@ class CalcController {
     setError() {
         this.displayCalc = 'Error';
     }
+
+    addDot() {
+        let lastOperation = this.getLastOperation();
+        if(typeof lastOperation === 'string' && lastOperation.split('').indexOf('.') > -1) return;
+        if(this.isOperator(lastOperation) || !lastOperation) {
+            this.setLastOperation('0.');
+        } else {
+            this.setLastOperation(lastOperation.toString() + '.');
+        }
+        this.setLastNumberToDisplay();
+    }
 }
