@@ -140,5 +140,11 @@ class CalcController {
         }
     }
 
-
+    getResult() {
+        try {
+            return eval(this._operation.join(''));
+        } catch (error) {
+            setTimeout(() => this.setError(), 1);
+        }
+    }
 }
