@@ -210,4 +210,8 @@ class CalcController {
             }
         }
     }
+
+    setError() {
+        this.displayCalc = 'Error';
+    }
 }
